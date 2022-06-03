@@ -58,6 +58,8 @@ In interative mode container, Login as postgres user and create simple_bank data
 ### Manually Execute container outside
 docker exec -it postgres14 'createdb --username=postgres --owner=postgres simple_bank'
 docker exec -it postgres14 'psql simple_bank -U postgres'
+
+
 ---
 
 ## Automate with Makefile
