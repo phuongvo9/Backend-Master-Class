@@ -1,4 +1,9 @@
 # Write and Run Database Migration
+## Table of Contents
+1. [Table of Contents](##Table of Contents)
+2. [Understand UP/DOWN migration](##Understand UP/DOWN migration)
+3. [Run Docker container manually to explore the manual steps](#Run Docker container manually to explore the manual steps)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
 ## Install Golang-Migrate
 https://github.com/golang-migrate/migrate
 
@@ -11,6 +16,8 @@ C:\Users\Phuong.VoHuy\LEARN\Repos\Backend-Master-Class\Database\db\migration\000
 C:\Users\Phuong.VoHuy\LEARN\Repos\Backend-Master-Class\Database\db\migration\000001_init_schema.down.sql
 
 ```
+
+---
 ## Understand UP/DOWN migration
 ![img_2.png](img_2.png)
 Up scripts can make FORWARD change to *Database Schema*
@@ -23,8 +30,30 @@ Making FORWARD changes to new DB schema *sequentially*
 REVERSING changes from reverse order of UP scripts
 ![img_4.png](img_4.png)
 
-
+---
 ## Init: UP scripts and DOWN scripts
 Copy SimpleDB.sql to UP scripts: \Database\db\migration\000001_init_schema.up.sql
 Write REVERSE script to DOWN: \Database\db\migration\000001_init_schema.down.sql
 
+## Explore the manual steps - Run Docker container manually 
+### Initialize Postgre container
+`docker run --name postgres14 -p 5432:5432 -e POSTGRES_PASSWORD=secret -d postgres:14-alpine`
+
+### Execute container inside
+`docker exec -it postgre14 /bin/sh`
+
+
+Create a database simple bank inside docker
+
+`createdb --username=postgres --owner=postgres simplebank`
+
+`psql simple_bank -U postgres`
+
+In interative mode container, Login as postgres user and create simple_bank database
+
+`createdb --username=postgres --owner=postgres simple_bank`
+
+`dropdb --username=postgres simple_bank`
+### Execute container outside
+docker exec -it postgres14 'createdb --username=postgres --owner=postgres simple_bank'
+docker exec -it postgres14 'psql simple_bank -U postgres'
