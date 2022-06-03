@@ -68,8 +68,12 @@ createdb:
 	docker exec -it postgres14 createdb --username=postgres --owner=postgres simple_bank
 dropdb:
 	docker exec -it postgres14 dropdb --username=postgres simple_bank
+migrateup:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" --versbose up
+migratedown:
+	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" --versbose down
+.PHONE: postgres createdb dropdb migrateup migratedown
 
-.PHONE: postgres createdb dropdb
 ````
 For example, You can type `make createdb` to quickly create db inside the running container
 
