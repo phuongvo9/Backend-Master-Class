@@ -71,3 +71,10 @@ dropdb:
 .PHONE: postgres createdb dropdb
 ````
 For example, You can type `make createdb` to quickly create db inside the running container
+
+---
+
+# Migrate databases
+
+`migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" --versbose up`
+
