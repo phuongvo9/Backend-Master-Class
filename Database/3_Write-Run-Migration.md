@@ -2,8 +2,9 @@
 ## Table of Contents
 1. [Table of Contents](##Table of Contents)
 2. [Understand UP/DOWN migration](##Understand UP/DOWN migration)
-3. [Run Docker container manually to explore the manual steps](#Run Docker container manually to explore the manual steps)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+3. [Explore the manual steps - Run Docker container manually ](##Explore the manual steps - Run Docker container manually)
+4. [Automate with Makefile](##Automate with Makefile)
+5. [Migrate databases](#Migrate databases)
 ## Install Golang-Migrate
 https://github.com/golang-migrate/migrate
 
