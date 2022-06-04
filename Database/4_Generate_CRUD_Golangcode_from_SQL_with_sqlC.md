@@ -28,6 +28,7 @@ packages:
 
 Unfortunately, the SQLC Postgres does not support Windows
 I will go to https://play.sqlc.dev/ to generate the Golang code
+![img_6.png](img_6.png)
 or I will use the Docker container of sqlc
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -47,8 +48,11 @@ More ref: https://docs.docker.com/engine/reference/commandline/run/
 
 
 ## Compile Golang code
-Before the code will compile, you’ll need to add the Go PostgreSQL driver
+Before the code will compile, you’ll need to inititialize the modules and add the Go PostgreSQL driver
 ```aidl
+go mod init github.com/phuongvo9/Backend-Master-Class
+go mod tidy
+
 go get github.com/lib/pq
 go build ./...
 ```
