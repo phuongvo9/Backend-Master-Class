@@ -15,7 +15,6 @@ https://github.com/golang-migrate/migrate
 .\migrate create -ext sql -dir db/migration -seq init_schema
 C:\Users\Phuong.VoHuy\LEARN\Repos\Backend-Master-Class\Database\db\migration\000001_init_schema.up.sql
 C:\Users\Phuong.VoHuy\LEARN\Repos\Backend-Master-Class\Database\db\migration\000001_init_schema.down.sql
-
 ```
 
 ---
