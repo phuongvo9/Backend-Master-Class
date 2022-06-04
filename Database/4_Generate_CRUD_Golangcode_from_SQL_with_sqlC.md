@@ -28,6 +28,21 @@ packages:
 
 Unfortunately, the SQLC Postgres does not support Windows
 I will go to https://play.sqlc.dev/ to generate the Golang code
+or I will use the Docker container of sqlc
+
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+
+```
+docker run --name sqlc --rm -v `pwd`:`pwd` kjconroy/sqlc --help
+docker run --name sqlc --rm -v `pwd`:`pwd` kjconroy/sqlc generate
+docker run --rm -v $(pwd):/src -w /src kjconroy/sqlc generate
+```
+Note:
+`--rm`: automatically remove container when it exits
+`-w` ~ `--workdir`: Working directory inside the container
+More ref: https://docs.docker.com/engine/reference/commandline/run/
+
 
 
 
