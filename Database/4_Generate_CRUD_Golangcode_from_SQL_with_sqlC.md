@@ -41,7 +41,9 @@ docker run --rm -v $(pwd):/src -w /src kjconroy/sqlc generate
 ```
 Note:
 `--rm`: automatically remove container when it exits
+
 `-w` ~ `--workdir`: Working directory inside the container
+
 More ref: https://docs.docker.com/engine/reference/commandline/run/
 
 
