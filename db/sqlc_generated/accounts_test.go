@@ -5,6 +5,7 @@ import (
 	"github.com/phuongvo9/Backend-Master-Class/util"
 	"github.com/stretchr/testify/require"
 	"testing"
+	"time"
 )
 
 // Separate CreateAccount for independent Unit tests
@@ -42,4 +43,20 @@ func CreateTestAccount(t *testing.T) Account {
 }
 func TestCreateAccount(t *testing.T) {
 	CreateTestAccount(t)
+}
+
+func TestQueries_GetAccount(t *testing.T) {
+	account1 := CreateTestAccount(t)
+	// test the GetAccount works correctly or not
+	account2, err := testQueries.GetAccount(context.Background(), account1.ID)
+	// Err from GetAccount
+	require.NoError(t, err)
+	require.NotEmpty(t, account2)
+	require.Equal(t, account1.ID, account2.ID)
+	require.Equal(t, account1.Owner, account2.Owner)
+	require.Equal(t, account1.Balance, account2.Balance)
+	require.Equal(t, account1.Currency, account2.Currency)
+	// withDuration - Choose delta as 1 seconds
+	require.WithinDuration(t, account1.CreatedAt, account2.CreatedAt, time.Second)
+
 }
