@@ -7,7 +7,7 @@ createdb:
 dropdb:
 	docker exec -it postgres14 dropdb --username=postgres simple_bank
 migrateup:
-	.\migrate -verbose -path db/migration -database "postgresql://postgres:secret@localhost:5432/simple_bank?sslmode=disable" up
+	.\migrate -verbose -path ./migration -database "postgresql://postgres:secret@localhost:5432/simple_bank?sslmode=disable" up
 migratedown:
-	.\migrate -verbose -path db/migration -database "postgresql://postgres:secret@localhost:5432/simple_bank?sslmode=disable" down
+	.\migrate -verbose -path ./migration -database "postgresql://postgres:secret@localhost:5432/simple_bank?sslmode=disable" down
 .PHONE: postgres stopPostgres createdb dropdb migrateup migratedown

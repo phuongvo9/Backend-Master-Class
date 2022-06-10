@@ -19,7 +19,7 @@ func RandomInt(min, max int64) int64 {
 func RandomString(n int) string {
 	var sb strings.Builder
 	k := len(alphabet)
-	for i = 0; i < n; i++ {
+	for i := 0; i < n; i++ {
 		char := alphabet[rand.Intn(k)]
 		sb.WriteByte(char)
 	}
@@ -28,7 +28,7 @@ func RandomString(n int) string {
 
 // func to random Owner name for account creation
 func RandomOwner() string {
-	return RandomString(RandomInt(7, 10)) // random name has length from 7 to 1
+	return RandomString(6) // random name has length from 7 to 1
 }
 
 // func to random Money for account creation
